@@ -1,5 +1,5 @@
 var mapLayers = null;
-var mapOverlay = document.getElementById('map-overlay');
+var mapOverlayOptions = document.getElementById('map-overlay-options');
 
 var map = new ol.Map({
 	target: 'map',
@@ -39,13 +39,22 @@ function addMapLayersToMap() {
 		var vectorLayer = new ol.layer.Heatmap({
 			source: vectorSource,
 			gradient: (mapLayers[i].envpriority > 0 ? ['#F1F8E9', '#8BC34A'] : ['#FFEBEE', '#F44336']),
-			opacity: Math.abs(mapLayers[i].envpriority) / 100
+			opacity: Math.abs(mapLayers[i].envpriority) / 100,
+			radius: 20 * Math.abs(mapLayers[i].envpriority) / 100
 		});
 
-		mapLayers.olLayer = vectorLayer;
+		mapLayers[i].olLayer = vectorLayer;
 
 		map.addLayer(vectorLayer);
 
-		mapOverlay.innerHTML += "<label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"" + mapLayers[i].id + "\"><input type=\"checkbox\" id=\"" + mapLayers[i].id + "\" class=\"mdl-switch__input\" checked><span class=\"mdl-switch__label\">" + mapLayers[i].name + "</span></label>";
+		mapOverlayOptions.innerHTML += "<label class=\"mdl-switch " + (mapLayers[i].envpriority < 0 ? "mdl-switch-red" : "") + " mdl-js-switch mdl-js-ripple-effect\" for=\"" + mapLayers[i].id + "\"><input type=\"checkbox\" id=\"" + mapLayers[i].id + "\" class=\"mdl-switch__input\" onchange=\"setMapLayerVisibility(this.id, this.checked)\" checked><span class=\"mdl-switch__label\">" + mapLayers[i].name + "</span></label>";
+	}
+}
+
+function setMapLayerVisibility(id, visible) {
+	for (var i = 0; i < mapLayers.length; i++) {
+		if (mapLayers[i].id == id) {
+			mapLayers[i].olLayer.setVisible(visible);
+		}
 	}
 }
