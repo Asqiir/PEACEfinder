@@ -20,3 +20,20 @@ html, body {
 	min-height: 15em;
 	padding: 1em;
 }
+
+#map-overlay label {
+	margin-bottom: 8px;
+}
+
+#map-overlay label:last-child {
+	margin-bottom: 0;
+}
+
+#map-overlay .mdl-switch-red .mdl-switch__ripple-container .mdl-ripple,
+#map-overlay .mdl-switch-red.mdl-switch.is-checked .mdl-switch__thumb {
+	background: rgb(244,67,54);
+}
+
+#map-overlay .mdl-switch-red.mdl-switch.is-checked .mdl-switch__track {
+	background: rgba(244,67,54,.5);
+}
