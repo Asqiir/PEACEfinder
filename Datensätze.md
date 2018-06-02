@@ -5,9 +5,8 @@ Positiv|Negativ
 ---|---
 Bänke| Straßen
 Parkanlagen| Hundetoiletten
-Bäume|
-Ruhige Gebiete|
-Uferlinie|
+Bäume| Baustellen
+Ruhige Gebiete| Kindereinrichtungen
 Strand|
 Fließgewässer|
 Naturdenkmale|
