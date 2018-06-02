@@ -11,5 +11,4 @@ Uferlinie|
 Strand|
 Fließgewässer|
 Naturdenkmale|
-Ruhige Gebiete|
 
