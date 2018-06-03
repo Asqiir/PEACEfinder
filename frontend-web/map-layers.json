@@ -10,7 +10,7 @@
 		{
 			"id": "pro-2",
 			"name": "Parkanlagen",
-			"url": "https://geo.sv.rostock.de/download/opendata/parkanlagen/parkanlagen.json",
+			"url": "parkanlagen_points.json",
 			"envpriority": 85
 		},
 		{
@@ -22,7 +22,7 @@
 		{
 			"id": "pro-4",
 			"name": "Ruhige Gebiete",
-			"url": "https://geo.sv.rostock.de/download/opendata/ruhige_gebiete/ruhige_gebiete.json",
+			"url": "ruhige_gebiete_points.json",
 			"envpriority": 100
 		},
 		{
