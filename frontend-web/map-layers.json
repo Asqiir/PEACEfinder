@@ -5,7 +5,7 @@
 			"id": "pro-1",
 			"name": "Bänke",
 			"url": "https://geo.sv.rostock.de/download/opendata/baenke/baenke.json",
-			"envpriority": 75
+			"envpriority": 30
 		},
 		{
 			"id": "pro-2",
@@ -28,20 +28,15 @@
 		{
 			"id": "pro-5",
 			"name": "Fließgewässer",
-			"url": "https://geo.sv.rostock.de/download/opendata/fliessgewaesser/fliessgewaesser.json",
-			"envpriority": 80
+			"url": "fliessgewaesser_points.json",
+			"envpriority": 80,
+			"radius": 2
 		},
 		{
 			"id": "pro-6",
 			"name": "Naturdenkmale",
 			"url": "https://geo.sv.rostock.de/download/opendata/naturdenkmale/naturdenkmale.json",
 			"envpriority": 50
-		},
-		{
-			"id": "con-1",
-			"name": "Straßen",
-			"url": "https://geo.sv.rostock.de/download/opendata/strassen/strassen.json",
-			"envpriority": -75
 		},
 		{
 			"id": "con-2",
