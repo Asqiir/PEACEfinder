@@ -1,0 +1,44 @@
+{
+   "interactionModel": {
+       "languageModel": {
+           "invocationName": "peacefinder rostock",
+           "intents": [
+               {
+                   "name": "AMAZON.CancelIntent",
+                   "samples": []
+               },
+               {
+                   "name": "AMAZON.HelpIntent",
+                   "samples": []
+               },
+               {
+                   "name": "AMAZON.StopIntent",
+                   "samples": []
+               },
+               {
+                   "name": "GetNewFactIntent",
+                   "slots": [
+                       {
+                           "name": "district",
+                           "type": "AMAZON.DE_REGION"
+                       }
+                   ],
+                   "samples": [
+                       "wo sind die schönsten Orte im Stadtteil {district}",
+                       "nach den schönsten Orten in der {district}",
+                       "nach den schönsten Orten im {district}",
+                       "nach den schönsten Orten in {district}",
+                       "nach einem schönen Ort im {district}",
+                       "nach den besten Orten im Stadtteil {district}",
+                       "nach einem schönen Ort im Stadtteil {district}",
+                       "wo ein schöner Ort im Stadtteil {district} ist",
+                       "wo ist ein schöner Ort im Stadtteil {district}",
+                       "nach den schönsten Orten im Stadtteil {district}",
+                       "nach schönen Orten im Stadtteil {district}"
+                   ]
+               }
+           ],
+           "types": []
+       }
+   }
+}
