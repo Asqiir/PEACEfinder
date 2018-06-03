@@ -53,7 +53,7 @@
 		{
 			"id": "con-4",
 			"name": "Kindereinrichtungen",
-			"url": "https://geo.sv.rostock.de/download/opendata/baustellen/baustellen.json",
+			"url": "https://geo.sv.rostock.de/download/opendata/kinderbetreuungseinrichtungen/kinderbetreuungseinrichtungen.json",
 			"envpriority": -40
 		}
 	]
