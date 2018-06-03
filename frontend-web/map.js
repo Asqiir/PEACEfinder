@@ -1,6 +1,8 @@
 var mapLayers = null;
 var mapOverlayOptions = document.getElementById('map-overlay-options');
 
+var silentStart = location.href.includes("silent");
+
 /*var specialHeatmap = new ol.layer.Heatmap({
 			source: new ol.source.Vector({
 				format: new ol.format.GeoJSON(),
@@ -16,22 +18,21 @@ specialHeatmap.getSource().on('addfeature', function(event) {
 	event.feature.set('weight', envpriority / 100);
 });*/
 
-var best5Places = new ol.layer.Vector({
+/*var best5Places = new ol.layer.Vector({
 	source: new ol.source.Vector({
 		format: new ol.format.GeoJSON(),
 		url: "best-5-places.json",
 		strategy: ol.loadingstrategy.bbox
 	}),
 	radius: 20
-});
+});*/
 
 var map = new ol.Map({
 	target: 'map',
 	layers: [
 		new ol.layer.Tile({
 			source: new ol.source.OSM()
-		}),
-		best5Places
+		}) // Add layers here, when 
 	],
 	view: new ol.View({
 		center: ol.proj.fromLonLat([12.110148, 54.123435]),
@@ -64,16 +65,18 @@ function addMapLayersToMap() {
 		var vectorLayer = new ol.layer.Heatmap({
 			source: vectorSource,
 			gradient: (mapLayers[i].envpriority > 0 ? ['#F1F8E9', '#8BC34A'] : ['#FFEBEE', '#F44336']),
-			opacity: Math.abs(mapLayers[i].envpriority) / 100,
-			radius: 20 * Math.abs(mapLayers[i].envpriority) / 100,
+			opacity: Math.abs(mapLayers[i].envpriority) / 120,
+			radius: (mapLayers[i].radius != undefined ? mapLayers[i].radius : 20 * Math.abs(mapLayers[i].envpriority) / 120),
 			shadow: 0
 		});
+
+		vectorLayer.setVisible(!silentStart);
 
 		mapLayers[i].olLayer = vectorLayer;
 
 		map.addLayer(vectorLayer);
 
-		mapOverlayOptions.innerHTML += "<label class=\"mdl-switch " + (mapLayers[i].envpriority < 0 ? "mdl-switch-red" : "") + " mdl-js-switch mdl-js-ripple-effect\" for=\"" + mapLayers[i].id + "\"><input type=\"checkbox\" id=\"" + mapLayers[i].id + "\" class=\"mdl-switch__input\" onchange=\"setMapLayerVisibility(this.id, this.checked)\" checked><span class=\"mdl-switch__label\">" + mapLayers[i].name + "</span></label>";
+		mapOverlayOptions.innerHTML += "<label class=\"mdl-switch " + (mapLayers[i].envpriority < 0 ? "mdl-switch-red" : "") + " mdl-js-switch mdl-js-ripple-effect\" for=\"" + mapLayers[i].id + "\"><input type=\"checkbox\" id=\"" + mapLayers[i].id + "\" class=\"mdl-switch__input\" onchange=\"setMapLayerVisibility(this.id, this.checked)\" " + (silentStart ? "" : "checked") + "><span class=\"mdl-switch__label\">" + mapLayers[i].name + "</span></label>";
 	}
 }
 
@@ -84,3 +87,18 @@ function setMapLayerVisibility(id, visible) {
 		}
 	}
 }
+
+// SEARCH FOR PLACE
+
+/*var placeMarker = new ol.
+
+document.getElementById("search-input").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        searchForPlace();
+    }
+});
+
+function searchForPlace() {
+
+}*/
